@@ -5,6 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bigotes</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Lucida Console, monospace;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Estilos para la sección de la imagen */
+        .📷 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .📷 img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+        
+        /* Estilos para el nombre */
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* Estilos para WhatsApp */
+        .whatsapp {
+            margin-bottom: 20px;
+        }
+        
+        .wp {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+        }
+        
+        .num {
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .num li {
+            list-style-type: none;
+            margin-bottom: 5px;
+        }
+        
+        /* Estilos para Facebook */
+        .facebook ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .facebook ul li {
+            margin-bottom: 5px;
+        }
+        
+        .facebook ul li a {
+            text-decoration: none;
+            color: #3b5998;
+        }
+        
+        /* Estilos para el correo electrónico */
+        .email ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .email ul li {
+            margin-bottom: 5px;
+        }
+        
+        .email ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        /* Agregar estilos para las imágenes */
+        .fb,
+        .em {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
+        }
+        
+        /* Estilos para los botones de copiar */
+        .copy-button {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container" id="container">
@@ -15,19 +118,66 @@
             Bigotes
         </div>
         <div class="whatsapp" id="whatsapp">
-            <p>
-                <img class="wp" id="wp">
-            </p>
-            <p class="num1" id="num1">
+            <div>
+                <img src="../IMG/vecteezy_whatsapp-logo-png-whatsapp-icon-png-whatsapp-transparent_18930748_651.png" class="wp" id="wp">
+            </div>
+            <div class="num" id="num">
                 <ul>
-                    <li>5543303689</li>
-                    <li>5567758414</li>                    
-                </ul>
-            </p>
-        </div>
-        <div class="messenger" id="messenger">
+                    <li class="num1" id="num1">5543303689</li>
+                    <button class="copy-button" onclick="copyToClipboard('num1')">Copiar</button>
 
+                    <li class="num2" id="num2">5567758414</li>
+                    <button class="copy-button" onclick="copyToClipboard('num2')">Copiar</button>                    
+                </ul>
+            </div>
+        </div>
+        <div class="facebook" id="facebook">
+            <div>
+                <img src="../IMG/vecteezy_facebook-png-icon_16716447_337.png" class="fb" id="fb">
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/janet.moa">Facebook 1</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/jantonio.sanchez.5">Facebook 2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="email" id="email">
+            <div>
+                <img src="../IMG/vecteezy_gmail-png-icon_16716465_828.png" class="em" id="em">
+            </div>
+            <div>
+                <ul>
+                    <li class="email1" id="email1">
+                        janet.triste@gmail.com
+                        
+                    </li>
+                    <button class="copy-button" onclick="copyToClipboard('email1')">Copiar</button>
+                    <li class="email2" id="email2">
+                        j.antonio.p.sanches81@gmail.com
+                        
+                    </li>
+                    <button class="copy-button" onclick="copyToClipboard('email2')">Copiar</button>
+                </ul>
+            </div>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                console.log('Texto copiado al portapapeles: ' + text);
+            }, function(err) {
+                console.error('Error al copiar el texto al portapapeles: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
